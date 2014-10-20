@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="D:/ITI Materials/Hibernate/Hibernate Day 1/Required/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="D:/ITI Materials/Hibernate/Hibernate Day 1/Required/commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="D:/ITI Materials/Hibernate/Hibernate Day 1/Required/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/ITI Materials/Hibernate/Hibernate Day 1/Required/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="D:/ITI Materials/Hibernate/Hibernate Day 1/Required/hibernate3.jar"/>
+	<classpathentry kind="lib" path="D:/ITI Materials/Hibernate/Hibernate Day 1/Required/javassist-3.9.0.GA.jar"/>
+	<classpathentry kind="lib" path="D:/ITI Materials/Hibernate/Hibernate Day 1/Required/jta-1.1.jar"/>
+	<classpathentry kind="lib" path="D:/ITI Materials/Hibernate/Hibernate Day 1/Required/mysql-connector-java-5.1.6-bin.jar"/>
+	<classpathentry kind="lib" path="D:/ITI Materials/Hibernate/Hibernate Day 1/Required/slf4j-api-1.5.8.jar"/>
+	<classpathentry kind="lib" path="D:/ITI Materials/Hibernate/Hibernate Day 1/Required/slf4j-nop-1.5.6.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JSF 2.0 (Mojarra 2.0.3-FCS)">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+			<attribute name="owner.project.facets" value="jst.jsf"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>
