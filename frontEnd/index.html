@@ -5,6 +5,9 @@
     <meta charset="utf-8">
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="css/bootstrap.min.css">
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
 
 <script>
   // This is called with the results from from FB.getLoginStatus().
@@ -79,12 +82,12 @@
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() { 
     FB.api('/me?fields=id,name,email,picture', function(response) {
-      document.getElementById('status').innerHTML =" <img src='"+response.picture.data.url+"' />"+'<h1>Welcome ' + response.name + ' !</h1>';//+ response.email;
+      document.getElementById('status').innerHTML =" <img src='"+response.picture.data.url+"' />"+'<h1>Welcome ' + response.name + ' !</h1>' + response.email;
     });
   }
 </script>
 </head>
-<title>What did he Say!</title>
+<title> What did he Say!</title>
 <body>
 <!-- Start NAv -->
     <nav class="navbar navbar-inverse">
@@ -96,23 +99,22 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>                        
           </button>
-          <a class="navbar-brand" href="#">What did he Say!</a>
+          <a class="navbar-brand" href="#"><i class="icon-bullhorn"></i> What did he Say!</a>
         </div>
-
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#Home" data-toggle="modal">Home</a></li>
-            <li><a href="#rate" data-toggle="#RateThem" data-toggle="modal">Rate Them !</a></li>
-            <li><a href="#know" data-target="#KnowThem" data-toggle="modal">Know Them !</a></li>
+            <li class="active"><a href="#Home" >Home</a></li>
+            <li><a href="#rate" data-target="#RateThem" data-toggle="modal"><i class="icon-bar-chart"></i></a></li>
+            <li><a href="#know" data-target="#KnowThem" data-toggle="modal"><i class="icon-group"></i></a></li>
           </ul>
 
 
 
 
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button></a></li>
+
+            <li><a href="#"><span><fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button></span></a></li>
+
           </ul>
         </div>
       </div>
@@ -121,54 +123,89 @@
 
 	 <div class="container" id="Home" >
       <div class="jumbotron" id="status">
-        
-        </div>
+         <h1>  Please Login Using <i class="icon-facebook-sign"></i> </h1>
+      </div>
     </div>
 <!-- End Header -->
 
 
 <!-- Start Body-->
 
+<!-- sKnowRate-->
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="KnowThem" id="KnowThem" aria-hidden="true">
+ 
 
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="Knowthem" id="KnowThem" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog modal-sm">
     <div class="modal-content"> 
-      <div class="jumbotron">
-      	We are going to discovery Who are they !  
-      </div>
-    </div>
+<!--Sector Selection -->
+  <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Know ! </h4>
+            </div>
+           
+
+            <div class="modal-body">
+          <div class="form-group" >
+    <label for="sel1">Which One !</label>
+      <select class="form-control" id="sel1">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>
+  </div>
+<!-- End of Sector Selection -->
+ </div>
+        <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+
 </div>
 </div>
+</div> 
+
+
+
+<!-- KnowRate -->
 
 <!-- sRating -->
 
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="RateThem" id="RateThem" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="RateThem" id="RateThem" aria-hidden="true">
+ 
+
+  <div class="modal-dialog modal-sm">
     <div class="modal-content"> 
 <!--Sector Selection -->
- 
-   <div class="form-group" >
-  	<label for="sel1">Which One !</label>
-  		<select class="form-control" id="sel1">
-    		<option>1</option>
-    		<option>2</option>
-    		<option>3</option>
-    		<option>4</option>
-  		</select>
-	</div>
+  <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Rate! </h4>
+            </div>
+           
+
+            <div class="modal-body">
+          <div class="form-group" >
+    <label for="sel1">Which One !</label>
+      <select class="form-control" id="sel1">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>
+  </div>
 <!-- End of Sector Selection -->
 
       <div class="form-group">  
-		<label class="radio-inline"><input type="radio" name="optradio"> sad </label>
-		<label class="radio-inline"><input type="radio" name="optradio"> Determined </label>
-		<label class="radio-inline"><input type="radio" name="optradio"> Happy!</label>
-	</div>        
+    <label class="radio-inline"><input type="radio" name="optradio"> sad </label>
+    <label class="radio-inline"><input type="radio" name="optradio"> Determined </label>
+    <label class="radio-inline"><input type="radio" name="optradio"> Happy!</label>
+  </div>        
 
 
       <div class="form-group">
-  		<label for="comment">Comment:</label>
-  		<textarea class="form-control" rows="5"  id="comment"></textarea>
-	</div>
+      <label for="comment">Comment:</label>
+      <textarea class="form-control" rows="5"  id="comment"></textarea>
+  </div>
 
 
         <div class="form-group">        
@@ -177,10 +214,18 @@
           </div>
         </div> 
 
+
+            </div>
+        <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+
 </div>
 </div>
-</div>
+</div> 
 <!-- eRating-->
+
 <!-- End Body -->
 
 
