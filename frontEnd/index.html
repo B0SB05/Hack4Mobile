@@ -79,9 +79,6 @@
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() { 
     FB.api('/me?fields=id,name,email,picture', function(response) {
-
-        <p>This page will grow as we add more and more components from Bootstrap...</p>      
-      
       document.getElementById('status').innerHTML =" <img src='"+response.picture.data.url+"' />"+'<h1>Welcome ' + response.name + ' !</h1>';//+ response.email;
     });
   }
