@@ -16,21 +16,40 @@ var pictureurl="";
 var picture="";
 var name="";
 var email="";
-function showMe(myid,x){
+var preID="-1";
+function showMe(myid,myname){
+if(myid != "-1")
+  {
+    $(".media-heading").text(name);
+    document.getElementById('mediaContainer').style.display="block"
+    document.getElementById('secID').innerHTML=myname + "!";
+   
+   }
+ else  
+ {
 
+$(".media-heading").value("");
+    document.getElementById('mediaContainer').style.display="none"
+   document.getElementById('secID').innerHTML="";
+  }
+}
+function sectorChanged(myid){
+        document.getElementById('mediaContainer').style.display="none"
+   document.getElementById('secID').innerHTML="";
   
-}
-function sectorChanged(x,myid){
-      if(x != "-1")
-     $('#'+myid).prop('disabled', false);
-    else 
-     {
-      $('#'+myid).prop('disabled', true);
+      console.log(preID);
+    if(myid != "-1"){
+    document.getElementById(myid).style.display="block"
+    if(preID !="-1")
+  {  document.getElementById(preID).style.display="none"}
+    preID=myid;  
+      }
 
-      } 
-
-      
+      else {
+        if(preID !="-1") {document.getElementById(preID).style.display="none"}
+    }
 }
+
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
@@ -171,27 +190,58 @@ function sectorChanged(x,myid){
 
             <div class="modal-body">
           <div class="form-group" >
-    <label for="sel1">Which One !</label>
-      <select class="form-control" id="sel1" onchange="javascript:sectorChanged(this.value,'place1')">
-        <option>-1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
+
+
+    <label for="sel1">Which Sector!</label>
+      <select class="form-control" id="sel1" onchange="javascript:sectorChanged(this.value)">
+      <option value="-1">--------</option>
+      <option value="K1">Banking</option>
+      <option value="K2">Restaurant</option>
+      <option value="K3">Hotels</option>
       </select>
-
-
-
-    <label for="place1">Which One !</label>
-      <select class="form-control" id="place1" onchange="javascript:showMe('mediaContainer')" disabled>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
+ 
+  <div id="K1" style="display:none">
+    <label for="bank">Which One!</label>
+      <select class="form-control"  onchange="showMe(this.value,'Banking ')" >
+        <option value="-1">Select Bank</option>
+    <option value="1">Alexandria bank</option>
+    <option value="2">Ahly unitied bank</option>
+    <option value="3">Ahly National Bank</option>
+    <option value="4">Bank Masr</option>
+    <option value="5">Cairo Bank</option>
       </select>
+    </div>
+    
+  <div id="K2" style="display:none">
+    <label for="bank">Which One!</label>
+    <select id="restaurant" class="form-control" onchange="showMe(this.value,'Restaurant ')">
+<option value="-1">Select Restaurant</option>
+<option value="1">Cinnabon</option>
+<option value="2">Steak Out</option>
+<option value="3">Pizza hut</option>
+<option value="4">Spectra</option>
+<option value="5">KFC</option>
+<option value="6">Marcato Italiano</option>
+</select>
+
+</div>
+  <div id="K3" style="display:none">
+
+    <label for="bank">Which One!</label>
+<select id="hotel" class="form-control" onchange="showMe(this.value,'Hotel ')">
+<option value="-1">Select Hotel</option>
+<option value="1">Hilton </option>
+<option value="2">FourSession</option>
+<option value="3">Movenpick</option>
+<option value="4">Grand Haya</option>
+</select>
+</div>
   </div>
 
 <div id="mediaContainer" style="display:none">
 <!-- Start qoutes-->
+    <label for="" id='secID'></label>
+
   <div class="media">
   <a class="pull-left" href="#">
     <img class="media-object" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/v/t1.0-1/c0.0.50.50/p50x50/10653572_885184971491582_2067449983979183029_n.jpg?oh=5e646c6531fd1bde3c34edc12a2f2943&oe=54F49907&__gda__=1421527609_dc72f6f02d1dd96f48027e0b6dc5d8a0">
@@ -205,6 +255,8 @@ function sectorChanged(x,myid){
 <!-- End Qoute -->
 <!-- start Qoute -->
 
+
+
   <div class="media">
   <a class="pull-left" href="#">
     <img class="media-object" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/v/t1.0-1/c0.0.50.50/p50x50/10653572_885184971491582_2067449983979183029_n.jpg?oh=5e646c6531fd1bde3c34edc12a2f2943&oe=54F49907&__gda__=1421527609_dc72f6f02d1dd96f48027e0b6dc5d8a0">
@@ -212,7 +264,10 @@ function sectorChanged(x,myid){
   <div class="media-body">
     <h4 class="media-heading">Myname</h4>
       dslkjds;lkfjd;dsfjd;fjds;fljsdl;fjsd;
-  </div>
+
+</div>
+
+
 </div>
 <!-- End Qoute -->
 
@@ -249,24 +304,51 @@ function sectorChanged(x,myid){
 
             <div class="modal-body"> 
 
-    <label for="sector">Sector </label>
-      <select   onchange="javascript:sectorChanged(this.value,'place')">
-        <option value="-1" selected="selected">--</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
+ <label for="sel1">Which Sector!</label>
+      <select class="form-control" id="sel1" onchange="javascript:sectorChanged(this.value)">
+      <option value="-1">--------</option>
+      <option value="K6">Banking</option>
+      <option value="K5">Restaurant</option>
+      <option value="K4">Hotels</option>
       </select>
-  
-
-
-    <label for="place">Which One !</label>
-      <select class="selectpicker " id="place" disabled>
-        <option>11</option>
-        <option>22</option>
-        <option>32</option>
-        <option>42</option>
+ 
+  <div id="K6" style="display:none">
+    <label for="bank">Which One!</label>
+      <select class="form-control"  onchange="" >
+        <option value="-1">Select Bank</option>
+    <option value="1">Alexandria bank</option>
+    <option value="2">Ahly unitied bank</option>
+    <option value="3">Ahly National Bank</option>
+    <option value="4">Bank Masr</option>
+    <option value="5">Cairo Bank</option>
       </select>
-  
+    </div>
+    
+  <div id="K5" style="display:none">
+    <label for="bank">Which One!</label>
+    <select id="restaurant" class="form-control">
+<option value="-1">Select Restaurant</option>
+<option value="1">Cinnabon</option>
+<option value="2">Steak Out</option>
+<option value="3">Pizza hut</option>
+<option value="4">Spectra</option>
+<option value="5">KFC</option>
+<option value="6">Marcato Italiano</option>
+</select>
+
+</div>
+  <div id="K4" style="display:none">
+
+    <label for="bank">Which One!</label>
+<select id="hotel" class="form-control">
+<option value="-1">Select Hotel</option>
+<option value="1">Hilton </option>
+<option value="2">FourSession</option>
+<option value="3">Movenpick</option>
+<option value="4">Grand Haya</option>
+</select>
+</div>
+
 <!-- End of Sector Selection -->
 
       <div class="form-group">  
